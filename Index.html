@@ -1,221 +1,40 @@
+<html>
+<head>
+  <title>heroku-static-site -- basic HTML+CSS+JS website on Heroku</title>
+  <link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" charset="utf-8" />
+  <script src="js/application.js" type="text/javascript" charset="utf-8"></script>
 
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> 
-<html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8"> <title>The Cofounders</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <link href="css/flexslider.min.css" rel="stylesheet" type="text/css" media="all"/>
-        <link href="css/line-icons.min.css" rel="stylesheet" type="text/css" media="all"/>
-        <link href="css/elegant-icons.min.css" rel="stylesheet" type="text/css" media="all"/>
-        <link href="css/lightbox.min.css" rel="stylesheet" type="text/css" media="all"/>
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all"/>
-        <link href="css/theme.css" rel="stylesheet" type="text/css" media="all"/>
-		<link href="css/custom.css" rel="stylesheet" type="text/css" media="all"/>
-		<link href="css/aboutus.css" rel="stylesheet" type="text/css" media="all"/>
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600,700%7CRaleway:700' rel='stylesheet' type='text/css'>
-        <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-    </head>
-    <body>
-    	<div class="loader">
-    		<div class="spinner">
-			  <div class="double-bounce1"></div>
-			  <div class="double-bounce2"></div>
-			</div>
-    	</div>
-				
-		<div class="nav-container">
-			<nav class="top-bar overlay-bar">
-				<div class="container">
-				
-					<div class="row utility-menu">
-						<div class="col-sm-12 utility-inner">
-							<div class="clearfix pull-left">
-								<span class="alt-font"><i class="icon icon_pin"></i> With love for craftmanship from San Francisco CA</span>
-							</div>
+</head>
+<body>
 
-							<div class="clearfix pull-right">
-								<span class="alt-font"><i class="icon icon_mail"></i> Get in touch: hi@cofounders.co</span>
-							</div>
-						</div>
-					</div>
-				
-				
-					<div class="row nav-menu">
-						<div class="col-md-2 col-sm-3 columns">
-							<img class="logo logo-light" alt="Logo" src="img/logo.png">
-							<img class="logo logo-dark" alt="Logo" src="img/logo.png">
-						</div>
-					
-						<div class="col-md-10 col-sm-9 columns">
-							<ul class="menu">
-								<li><a href="/Users/Cristian/Google%20Drive/Projects/4.%20Ionuss%20UI%20Design/Website/aboutus.html">About</a></li>
-								<li><a href="#">Our work</a></li>
-								<li><a href="#">Our Companies</a></li>
-								<li><a href="#">Let's talk</a></li>
-							</ul>
-		
-							<ul class="social-icons text-right">
-								<li>
-									<a href="#">
-										<i class="icon social_dribbble"></i>
-									</a>
-								</li>
-							
-								<li>
-									<a href="#">
-										<i class="icon social_instagram"></i>
-									</a>
-								</li>
-							
-								<li>
-									<a href="#">
-										<i class="icon social_twitter"></i>
-									</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-					
-					<div class="mobile-toggle">
-						<i class="icon icon_menu"></i>
-					</div>
-					
-				</div>
-			</nav>
-				
-		</div>
-		
-		<div class="main-container">
-			<header class="fullscreen-element no-pad centered-text">
-				<div class="background-image-holder parallax-background overlay">
-					<img class="background-image" alt="Background Image" src="img/bg.jpg">
-				</div>
-				
-			<!--		<div class="container">
-					<div class="row">
-						<div class="col-sm-12 text-center">
-							<img alt="logo" class="logo" src="img/logo.png">
-							<h1 class="text-white space-bottom-medium">Product design<br>that people fall in love with</h1>
-							<a target="_blank" href="http://www.mediumra.re/pivot/variant/builder.html" class="btn btn-primary btn-white">Customize Pivot</a>
-							<a href="#" class="btn btn-primary btn-filled">Purchase Pivot</a>
-						</div>
-					</div>
-				</div>        -->
+<div id="container">
+  <div id="header">
+    <h1><a href="/">heroku-static-site</a></h1>
 
-			<div class="container align-vertical">
-					<div class="row">
-						<div class="col-md-12 text-center">
-						    <span class="text-white alt-font">Welcome to The Co-founders</span>
-							<h1 class="text-white h1_bold">Product design<br>that people fall in love with</h1>
-							<p class="lead text-white">We're a product driven team with focus on mobile, experience mechanics and well implemented design</p>
-							<a target="_blank" href="http://www.mediumra.re/pivot/variant/builder.html" class="btn btn-primary btn-white">See what we do</a>
-							<a href="#" class="btn btn-primary btn-filled">Work with us</a>
-						</div>
-					</div>
-				</div>
-			</header>
-			<section class="no-pad clearfix">
-				
-				<div class="col-md-6 col-sm-12 no-pad">
-				
-					<div class="feature-box">
-					
-						<div class="background-image-holder overlay">
-							<img class="background-image" alt="Background Image" src="img/project2.jpg">
-						</div>
-						
-						<div class="inner">
-							<span class="alt-font text-white">PRODUCT STUDIO</span>
-							<h1 class="text-white h1_bold_2"> We use our skills as capital</h1>
-							<p class="text-white">
-								We inovate together with our clients and act like cofounders in their companies. We sometimes choose to walk along on their journey, as we like to invest portions of our capital in their companies. If you'd like to work with us, let's talk.
-							</p>
-							<a href="#" class="btn btn-primary btn-white">See our work</a>
-						</div>
-					</div>
-					
-				</div>
-				
-				<div class="col-md-6 col-sm-12 no-pad">
-				
-					<div class="feature-box">
-					
-						<div class="background-image-holder overlay">
-							<img class="background-image" alt="Background Image" src="img/project7.jpg">
-						</div>
-						
-						<div class="inner">
-							<span class="alt-font text-white">Our companies</span>
-							<h1 class="text-white h1_bold_2">We build our own products</h1>
-							<p class="text-white">
-								Over the years we've built our own products that use core technologies and incubated them. Some spin-off and become good companies that.  <br>Some are  are good lessons learned.
-							</p>
-							<a href="#" class="btn btn-primary btn-white">View our companies</a>
-						</div>
-					</div>
-				</div>
-				
-			</section>
+    <div id="navigation">
+      <ul>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+      </ul>
+    </div>
+  </div>
 
-			<section class="strip">
-				<div class="container">
-				<div class="background-image-holder">
-							<img class="background-image fullscreen-element" alt="Background Image" src="img/bg1.jpg">
-						</div>
-					<div class="row clearfix">
-						<div class="col-sm-3 col-xs-12 pull-left">
-							<a href="#" class="btn btn-primary btn-white btn-filled">Got a project? Let's get in touch!</a>
-						</div>
-						
-						<div class="col-sm-4 col-xs-12 pull-right text-right">
-							<ul class="social-icons ">
-								<li>
-									<a href="#">
-										<i class="icon social_twitter text-white"></i>
-									</a>
-								</li>
-								
-								<li>
-									<a href="#">
-										<i class="icon social_facebook text-white"></i>
-									</a>
-								</li>
-								
-								<li>
-									<a href="#">
-										<i class="icon social_dribbble text-white"></i>
-									</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</section>
 
-		</div>
-		
-		<div class="footer-container">
-		</div>
-				
-		<script src="https://www.youtube.com/iframe_api"></script>
-		<script src="js/jquery.min.js"></script>
-        <script src="js/jquery.plugin.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery.flexslider-min.js"></script>
-        <script src="js/smooth-scroll.min.js"></script>
-        <script src="js/skrollr.min.js"></script>
-        <script src="js/spectragram.min.js"></script>
-        <script src="js/scrollReveal.min.js"></script>
-        <script src="js/isotope.min.js"></script>
-        <script src="js/twitterFetcher_v10_min.js"></script>
-        <script src="js/lightbox.min.js"></script>
-        <script src="js/jquery.countdown.min.js"></script>
-        <script src="js/scripts.js"></script>
-    </body>
+  <div id="main">
+
+    <div id="description">
+      <h2>What's the idea?</h2>
+      <p>Yep</p>
+    </div>
+  </div>
+
+  <div id="footer">
+    &copy; 2013 No Rights Reserved.
+
+  </div>
+</div>
+
+
+</body>
 </html>
