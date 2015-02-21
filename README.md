@@ -1,0 +1,2 @@
+# standard-report
+Standard Report este un proiect ce ajuta ONG-urile sa isi prezinte munca in contextul unor probleme sociale majore pe care acestea le adreseaza prin activitatea lor. Combinam datele instorice ale ONG-urilor cu open data si seturi de date minate, pentru a ajuta ONG-urile sa-si standardizeze modul in care datele de impact sunt raportate. Facand asta putem contribui la coordonarea activitatilor mai multor institutii din acelasi sector sau din sectoare diferite si la intarirea relatiilor cu finantatorii lor.
