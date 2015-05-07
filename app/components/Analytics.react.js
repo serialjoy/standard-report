@@ -5,6 +5,9 @@ var Widget9WeeklyShares = require('./widgets/widget9-weekly-shares.react');
 var Widget10WeeklyViews = require('./widgets/widget10-weekly-views.react');
 var Widget4PointsGraph = require('./widgets/widget4-points-graph.react');
 
+var heatmap1 = null;
+var heatmap2 = null;
+
 var Analytics = React.createClass({
     getInitialState: function() {
         return {
@@ -12,10 +15,73 @@ var Analytics = React.createClass({
         }
     }
     , componentDidMount: function(){
-        switchMap();switchMap2();
+        // map center
+        var myLatlng = new google.maps.LatLng(46.043444, 24.573860);
+        // map options,
+        var myOptions = {
+            zoom: 7,
+            center: myLatlng
+        };
+        // standard map
+        var      map1 = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
+        var map2 = new google.maps.Map(document.getElementById("map-canvas2"), myOptions);
+        heatmap1 = new HeatmapOverlay(map1,
+        {
+            // radius should be small ONLY if scaleRadius is true (or small radius is intended)
+            "radius": 0.7,
+            "maxOpacity": 1,
+            // scales the radius based on map zoom
+            "scaleRadius": true,
+            // if set to false the heatmap uses the global maximum for colorization
+            // if activated: uses the data maximum within the current map boundaries
+            //   (there will always be a red spot with useLocalExtremas true)
+            "useLocalExtrema": true,
+            // which field name in your data represents the latitude - default "lat"
+            latField: 'lat',
+            // which field name in your data represents the longitude - default "lng"
+            lngField: 'lng',
+            // which field name in your data represents the data value - default "value"
+            valueField: 'count',
+            gradient: {
+                // enter n keys between 0 and 1 here
+                // for gradient color customization
+                '.5': 'red',
+                '.8': 'green',
+                '.95': 'blue'
+              }
+        });
+        heatmap2 = new HeatmapOverlay(map2,
+        {
+            // radius should be small ONLY if scaleRadius is true (or small radius is intended)
+            "radius": 0.5,
+            "maxOpacity": 1,
+            // scales the radius based on map zoom
+            "scaleRadius": true,
+            // if set to false the heatmap uses the global maximum for colorization
+            // if activated: uses the data maximum within the current map boundaries
+            //   (there will always be a red spot with useLocalExtremas true)
+            "useLocalExtrema": false,
+            // which field name in your data represents the latitude - default "lat"
+            latField: 'lat',
+            // which field name in your data represents the longitude - default "lng"
+            lngField: 'lng',
+            // which field name in your data represents the data value - default "value"
+            valueField: 'count',
+            gradient: {
+                // enter n keys between 0 and 1 here
+                // for gradient color customization
+                '.5': 'red',
+                '.8': 'green',
+                '.95': 'blue'
+              }
+        }
+    );
+        heatmap1.setData(testData1["d2000"]);
+        heatmap2.setData(testData2["d2000"]);
     }
     , handleHeat:function (event, data){
-        window.switchMap(data);
+        heatmap1.setData(testData1[data]);
+        heatmap2.setData(testData2[data]);
     }
     , handleHeat2:function (event, data){
         window.switchMap2(data);
@@ -104,30 +170,22 @@ var Analytics = React.createClass({
                                     </div>
                                 </div>
                                 <div className="panel-body">
-                                    <div className="col-md-4 no-padding">
+                                    <div className="col-md-8 no-padding">
                                         <div className="p-r-30">
                                             <h3>Heatmap Beneficiari </h3>
                                             <br />
                                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                            <br />
-
-            <p>1990 - 1995<br />
-numar de avorturi pe 1000 locuitori	500.840 (-33%)</p>
-<br />
-<p>1995 - 2000<br />
-numar de avorturi pe 1000 locuitori 1.837.571 (-48%)</p>
-<br />
-<p>2000 - 2005<br />numar de avorturi pe 1000 locuitori 1.176.175 (-33%)</p>
-<br />
-<p>2005 - 2010<br />numar de avorturi pe 1000 locuitori 694.957 (-35%)</p>
-<br />
-<p>2010-2013<br />numar de avorturi pe 1000 locuitori 380.087(-9%)</p>
-
-
                                         </div>
                                     </div>
-                                    <div className="map-container col-md-8">
+
+                                </div>
+                            </div>
+
+                            </div>
+                            {/* END ROW */}
+                            <div className="map-container container-fluid">
                                         {/* Nav tabs */}
+                                        <div className="row">
                                         <ul id="tabs-nvd3" className="nav nav-tabs nav-tabs-linetriangle">
 
                                             <li className="">
@@ -149,76 +207,17 @@ numar de avorturi pe 1000 locuitori 1.837.571 (-48%)</p>
                                                 <a data-toggle="tab" href="#tab-nvd3-line" onClick={this.handleHeat.bind(null, window.event, 'd2014')}><span>2014</span></a>
                                             </li>
                                         </ul>
-                                        {/* Tab panes */}
-                                        <div id="map-canvas"></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            </div>
-                            {/* END ROW */}
-                        </div>
-                        <div className="container-fluid padding-25 sm-padding-10">
-                            {/* START ROW */}
-                            <div className="row">
-            <div className="panel panel-transparent">
-                                <div className="panel-heading ">
-                                    <div className="panel-title">Charts
-                                    </div>
-                                    <div className="panel-controls">
-                                        <ul>
-                                            <li><a href="#" className="portlet-collapse" data-toggle="collapse"><i className="pg-arrow_maximize"></i></a>
-                                            </li>
-                                            <li><a href="#" className="portlet-refresh" data-toggle="refresh"><i className="pg-refresh_new"></i></a>
-                                            </li>
-                                            <li><a href="#" className="portlet-close" data-toggle="close"><i className="pg-close"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div className="panel-body">
-                                    <div className="col-md-4 no-padding">
-                                        <div className="p-r-30">
-                                            <h3>Talk less, show more</h3>
-                                            <br />
-                                            <p>This project is an attempt to build re-usable charts and chart components for d3.js without taking away the power that d3.js gives you. This is a very young collection of components, with the goal of keeping these components very customizeable, staying away from your standard cookie cutter solutions.</p>
-                                            <br />
-
-
-
+                                        </div>
+                                        <div className="row">
+                                            {/* Tab panes */}
+                                            <div className="col-md-6">
+                                                <div id="map-canvas" className="map-div"></div>
+                                            </div>
+                                            <div className="col-md-6">
+                                                <div id="map-canvas2" className="map-div"></div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div className="map-container col-md-8">
-                                        {/* Nav tabs */}
-                                        <ul id="tabs-nvd3" className="nav nav-tabs nav-tabs-linetriangle">
-
-                                            <li className="">
-                                                <a data-toggle="tab" href="#tab-nvd3-line" onClick={this.handleHeat2.bind(null, window.event, 'd2000')} ><span>2000</span></a>
-                                            </li>
-                                            <li className="">
-                                                <a data-toggle="tab" href="#tab-nvd3-line" onClick={this.handleHeat2.bind(null, window.event, 'd2003')}><span>2003</span></a>
-                                            </li>
-                                            <li className="">
-                                                <a data-toggle="tab" href="#tab-nvd3-line" onClick={this.handleHeat2.bind(null, window.event, 'd2006')}><span>2006</span></a>
-                                            </li>
-                                            <li className="">
-                                                <a data-toggle="tab" href="#tab-nvd3-line" onClick={this.handleHeat2.bind(null, window.event, 'd2009')}><span>2009</span></a>
-                                            </li>
-                                            <li className="">
-                                                <a data-toggle="tab" href="#tab-nvd3-line" onClick={this.handleHeat2.bind(null, window.event, 'd2012')}><span>2012</span></a>
-                                            </li>
-                                            <li className="">
-                                                <a data-toggle="tab" href="#tab-nvd3-line" onClick={this.handleHeat2.bind(null, window.event, 'd2014')}><span>2014</span></a>
-                                            </li>
-                                        </ul>
-                                        {/* Tab panes */}
-                                        <div id="map-canvas2"></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            </div>
-                            {/* END ROW */}
                         </div>
                         {/* END CONTAINER FLUID */}
                       {/* END PAGE CONTENT */}
